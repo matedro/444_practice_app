@@ -1,6 +1,7 @@
 import React from 'react';
+import RegistrationForm from './RegistrationForm';
 import boring from './boring.jpg';
-import './App.css';
+// import './App.css';
 
 function App() {
   let imgStyle = {
@@ -11,9 +12,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          International Pencil Pushers Conference<br/>
-          Boring, Oregon, USA<br/>
-          May 6, 2020
+          National Pencil Pushers Conference
+          <br/>Boring, Oregon
+          <br/>May 6, 2020
         </p>
         <img src={boring} style={imgStyle} className="Boring" alt="Boring, Oregon" />
         <p>
@@ -22,6 +23,7 @@ function App() {
         <button>
           Register
         </button>
+        <RegistrationForm />
       </header>
     </div>
   );
