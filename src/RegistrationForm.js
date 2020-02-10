@@ -37,12 +37,14 @@ class RegistrationForm extends React.Component {
           Name
           <br/>
           <input
+            name="firstName"
             type="text"
             value={this.state.firstName}
             placeholder="First Name"
             onChange={this.handleChange}
           />
           <input
+            name="lastName"
             type="text"
             value={this.state.lastName}
             placeholder="Last Name"
@@ -54,6 +56,7 @@ class RegistrationForm extends React.Component {
           Address
           <br/>
           <input
+            name="address.street1"
             type="text"
             value={this.state.address.street1}
             placeholder="Address Line 1"
@@ -61,6 +64,7 @@ class RegistrationForm extends React.Component {
           />
           <br/>
           <input
+            name="address.street2"
             type="text"
             value={this.state.address.street2}
             placeholder="Address Line 2"
@@ -68,12 +72,17 @@ class RegistrationForm extends React.Component {
           />
           <br/>
           <input
+            name="address.city"
             type="text"
             value={this.state.address.city}
             placeholder="City"
             onChange={this.handleChange}
           />
-          <select value={this.state.address.state} onChange={this.onChange}>
+          <select
+            name="address.state"
+            value={this.state.address.state}
+            onChange={this.onChange}
+          >
             <option value="">State...</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
@@ -128,6 +137,7 @@ class RegistrationForm extends React.Component {
             <option value="WY">Wyoming</option>
           </select>
           <input
+            name="address.zipCode"
             type="text"
             value={this.state.address.zipCode}
             placeholder="Zip Code"
@@ -139,6 +149,7 @@ class RegistrationForm extends React.Component {
           Contact Information
           <br/>
           <input
+            name="email"
             type="text"
             value={this.state.email}
             placeholder="Email Address"
@@ -150,13 +161,18 @@ class RegistrationForm extends React.Component {
           Affiliation and Occupation
           <br/>
           <input
+            name="affiliation"
             type="text"
             value={this.state.affiliation}
             placeholder="School or Company Affiliation"
             onChange={this.handleChange}
           />
           <br/>
-          <select value={this.state.occupation} onChange={this.handleChange}>
+          <select
+            name="occupation"
+            value={this.state.occupation}
+            onChange={this.handleChange}
+          >
             <option value="">Occupation...</option>
             <option value="Undergraduate Student">Undergraduate Student</option>
             <option value="Graduate Student">Graduate Student</option>
@@ -168,7 +184,11 @@ class RegistrationForm extends React.Component {
         <label>
           Payment
           <br/>
-          <select value={this.state.paymentMethod} onChange={this.handleChange}>
+          <select
+            name="paymentMethod"
+            value={this.state.paymentMethod}
+            onChange={this.handleChange}
+          >
             <option value="">Payment Method...</option>
             <option value="Credit Card">Credit Card</option>
             <option value="Debit Card">Debit Card</option>
