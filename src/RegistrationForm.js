@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import RegistrationForm from "./register/RegistrationForm";
-import ReviewForm from "./register/ReviewForm";
+import Register from "./register/Register";
+import Review from "./register/Review";
 
 function SubmitButton() {
   let history = useHistory();
@@ -17,7 +17,7 @@ function SubmitButton() {
   )
 }
 
-class Register extends React.Component {
+class RegistrationForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -46,10 +46,10 @@ class Register extends React.Component {
     const inReview = this.state.review;
     return (
       <div>
-        {inReview ? <ReviewForm /> : <RegistrationForm />}
+        {inReview ? <Review /> : <Register />}
       </div>
     )
   }
 }
 
-export default Register;
+export default RegistrationForm;

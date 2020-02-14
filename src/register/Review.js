@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ReviewForm extends React.Component {
+class Review extends React.Component {
   render() {
     return (
       <label>Unimplemented</label>
@@ -8,4 +8,4 @@ class ReviewForm extends React.Component {
   }
 }
 
-export default ReviewForm;
+export default Review;
