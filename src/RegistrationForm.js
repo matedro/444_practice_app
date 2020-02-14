@@ -195,7 +195,7 @@ class RegistrationForm extends React.Component {
             <option value="PayPal">PayPal</option>
           </select>
         </label>
-        </form>
+      </form>
     )
   }
 }

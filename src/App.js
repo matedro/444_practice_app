@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from './Home';
-import RegistrationForm from './RegistrationForm';
+import Register from './Register';
 // import './App.css';
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
             <Home />
           </Route>
           <Route path="/register/">
-            <RegistrationForm />
+            <Register />
           </Route>
         </Switch>
       </Router>
