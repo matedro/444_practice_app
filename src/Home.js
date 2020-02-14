@@ -24,13 +24,13 @@ class Home extends React.Component {
 
     return (
       <div>
-        <header className="App-header">
+        <header>
           <p>
             National Pencil Pushers Conference
             <br/>Boring, Oregon
             <br/>May 6, 2020
           </p>
-          <img src={boring} style={imgStyle} className="Boring" alt="Boring, Oregon" />
+          <img src={boring} style={imgStyle} alt="Boring, Oregon" />
         </header>
         <br/>
         <label>
