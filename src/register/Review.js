@@ -59,6 +59,7 @@ class Review extends React.Component {
         <label>
           {info.paymentMethod}
         </label>
+        <br/>
         <button type="button" onClick={this.handleReEdit}>
           Go Back
         </button>
