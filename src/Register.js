@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import RegistrationForm from "./RegistrationForm";
+import RegistrationForm from "./register/RegistrationForm";
+import ReviewForm from "./register/ReviewForm";
 
 function SubmitButton() {
   let history = useHistory();
@@ -45,7 +46,7 @@ class Register extends React.Component {
     const inReview = this.state.review;
     return (
       <div>
-        {inReview ? <label>Unimplemented</label> : <RegistrationForm />}
+        {inReview ? <ReviewForm /> : <RegistrationForm />}
       </div>
     )
   }
