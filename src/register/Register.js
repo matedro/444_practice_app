@@ -4,12 +4,75 @@ class Register extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      errors: {
+        firstName: '',
+        lastName: '',
+        street1: '',
+        city: '',
+        state: '',
+        zipCode: '',
+        email: '',
+        affiliation: '',
+        occupation: '',
+        paymentMethod: ''
+      }
+    };
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.props.handleChange(event.target.name, event.target.value);
+    const validZipCode = /^\d{5}(-\d{4})?$/;
+    const validEmailAddress = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const { name, value } = event.target;
+    let errors = this.state.errors;
+
+    switch (name) {
+      case 'firstName':
+        errors.firstName = value.length === 0 ?
+          'First name must not be empty.' : '';
+        break;
+      case 'lastName':
+        errors.lastName = value.length === 0 ?
+          'Last name must not be empty.' : '';
+        break;
+      case 'street1':
+        errors.street1 = value.length === 0 ?
+          'Street address must not be empty.' : '';
+        break;
+      case 'city':
+        errors.city = value.length === 0 ?
+          'City must not be empty.' : '';
+        break;
+      case 'state':
+        errors.state = value === '' ?
+          'A state must be selected.' : '';
+        break;
+      case 'zipCode':
+        errors.zipCode = validZipCode.test(value) ?
+          '' : 'Enter a valid ZIP code.';
+        break;
+      case 'email':
+        errors.email = validEmailAddress.test(value) ?
+          '' : 'Enter a valid email address.';
+        break;
+      case 'affiliation':
+        errors.affiliation = value.length === 0 ?
+          'Affiliation must not be empty.' : '';
+        break;
+      case 'occupation':
+        errors.occupation = value === '' ?
+          'An occupation must be selected.' : '';
+        break;
+      case 'paymentMethod':
+        errors.paymentMethod = value === '' ?
+          'A payment method must be selected.' : '';
+        break;
+    }
+    this.setState({ errors });
+    this.props.handleChange(name, value);
   }
 
   handleSubmit(event) {
@@ -17,6 +80,11 @@ class Register extends React.Component {
   }
 
   render() {
+    const errors = this.state.errors;
+    const errorStyle = {
+      color: "red"
+    };
+
     return (
       <div>
         <h2>Please fill out this form.</h2>
@@ -41,6 +109,18 @@ class Register extends React.Component {
             />
           </label>
           <br/>
+          {errors.firstName.length > 0 &&
+            <div>
+              <span style={errorStyle}>{errors.firstName}</span>
+              <br/>
+            </div>
+          }
+          {errors.lastName.length > 0 &&
+            <div>
+              <span style={errorStyle}>{errors.lastName}</span>
+              <br/>
+            </div>
+          }
           <label>
             Address
             <br/>
@@ -52,6 +132,12 @@ class Register extends React.Component {
               onChange={this.handleChange}
             />
             <br/>
+            {errors.street1.length > 0 &&
+              <div>
+                <span style={errorStyle}>{errors.street1}</span>
+                <br/>
+              </div>
+            }
             <input
               name="street2"
               type="text"
@@ -134,6 +220,24 @@ class Register extends React.Component {
             />
           </label>
           <br/>
+          {errors.city.length > 0 &&
+            <div>
+              <span style={errorStyle}>{errors.city}</span>
+              <br/>
+            </div>
+          }
+          {errors.state.length > 0 &&
+            <div>
+              <span style={errorStyle}>{errors.state}</span>
+              <br/>
+            </div>
+          }
+          {errors.zipCode.length > 0 &&
+            <div>
+              <span style={errorStyle}>{errors.zipCode}</span>
+              <br/>
+            </div>
+          }
           <label>
             Contact Information
             <br/>
@@ -146,6 +250,12 @@ class Register extends React.Component {
             />
           </label>
           <br/>
+          {errors.email.length > 0 &&
+            <div>
+              <span style={errorStyle}>{errors.email}</span>
+              <br/>
+            </div>
+          }
           <label>
             Affiliation and Occupation
             <br/>
@@ -157,6 +267,12 @@ class Register extends React.Component {
               onChange={this.handleChange}
             />
             <br/>
+            {errors.affiliation.length > 0 &&
+              <div>
+                <span style={errorStyle}>{errors.affiliation}</span>
+                <br/>
+              </div>
+            }
             <select
               name="occupation"
               value={this.props.info.occupation}
@@ -170,6 +286,12 @@ class Register extends React.Component {
             </select>
           </label>
           <br/>
+          {errors.occupation.length > 0 &&
+            <div>
+              <span style={errorStyle}>{errors.occupation}</span>
+              <br/>
+            </div>
+          }
           <label>
             Payment
             <br/>
@@ -185,6 +307,12 @@ class Register extends React.Component {
             </select>
           </label>
           <br/>
+          {errors.paymentMethod.length > 0 &&
+            <div>
+              <span style={errorStyle}>{errors.paymentMethod}</span>
+              <br/>
+            </div>
+          }
           <input type="submit" value="Next" />
         </form>
       </div>

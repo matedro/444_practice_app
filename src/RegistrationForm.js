@@ -17,6 +17,7 @@ class RegistrationForm extends React.Component {
         city: '',
         state: '',
         zipCode: '',
+        email: '',
         affiliation: '',
         occupation: '',
         paymentMethod: ''
