@@ -1,5 +1,20 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import boring from './boring.jpg';
+
+function RegisterButton() {
+  let history = useHistory();
+
+  function handleClick() {
+    history.push("/register/");
+  }
+
+  return (
+    <button type="button" onClick={handleClick}>
+      Register
+    </button>
+  )
+}
 
 class Home extends React.Component {
   constructor(props) {
@@ -26,9 +41,7 @@ class Home extends React.Component {
           Please register with the button below.
         </label>
         <br/>
-        <button>
-          Register
-        </button>
+        <RegisterButton />
       </div>
     )
   }

@@ -6,7 +6,7 @@ Matt Robison, Spring 2020
 ## Requirements
 
 ### Homepage
-URL: `/home/`
+URL: `/`
 
 Reached by initializing the webapp or selecting "Return to Homepage" on the end
 page
