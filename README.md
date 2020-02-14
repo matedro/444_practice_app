@@ -1,5 +1,5 @@
 # SWEN-444 Practice Webapp: React
-A basic React webapp to "register" for the International Pencil Pushers Conference in Boring, Oregon
+A basic React webapp to "register" for the National Pencil Pushers Conference in Boring, Oregon
 
 Matt Robison, Spring 2020
 
@@ -32,10 +32,8 @@ Contains:
   * Payment method: `Credit`, `Debit`, or `PayPal`
 * Field auditing for appropriate formatting:
   * Length limits
-  * Proper phone number
   * Zip code and date
   * Any other audits deemed necessary
-  * Note that incorrect fields are highlighted if audits fail
 * A button labeled "Next"
 
 ### Review page
@@ -45,7 +43,7 @@ Reached by selecting "Next" on the form page
 
 Contains:
 * A display of all information for a final check
-* A button labeled "Back" which returns to the form page
+* A button labeled "Go Back" which returns to the form page
 * A button labeled "Register" which completes the process
 
 ### End page
@@ -54,10 +52,6 @@ URL: `/registrationComplete/`
 Reached by selecting "Register" in the review page
 
 Contains:
-* A message saying "Thank you for registering for the International Pencil
-Pushers Conference in Boring, Oregon, USA."
-* A button labeled "Return to Homepage"
-
-### Bonus Features?
-* A registration verification email sent upon successful registration
-* Triple-field phone number form with automatic form jumping
+* A message saying "Thank you for registering for the National Pencil
+Pushers Conference!"
+* A button labeled "Return to Home"

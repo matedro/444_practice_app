@@ -10,7 +10,7 @@ function SubmitButton() {
 
   return (
     <button type="button" onClick={handleClick}>
-      Submit
+      Register
     </button>
   )
 }
