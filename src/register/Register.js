@@ -14,6 +14,7 @@ class Register extends React.Component {
         zipCode: '',
         email: '',
         affiliation: '',
+        date: '',
         occupation: '',
         paymentMethod: ''
       }
@@ -25,7 +26,8 @@ class Register extends React.Component {
 
   handleChange(event) {
     const validZipCode = /^\d{5}(-\d{4})?$/;
-    const validEmailAddress = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const validEmailAddress = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const validDate = /^([0]?[1-9]|[1][0-2])[/-]([0]?[1-9]|[1|2][0-9]|[3][0|1])[/-]([0-9]{4}|[0-9]{2})$/;
     const { name, value } = event.target;
     let errors = this.state.errors;
 
@@ -61,6 +63,10 @@ class Register extends React.Component {
       case 'affiliation':
         errors.affiliation = value.length === 0 ?
           'Affiliation must not be empty.' : '';
+        break;
+      case 'date':
+        errors.date = validDate.test(value) ?
+          '' : 'Date must be formatted as MM/DD/YYYY.';
         break;
       case 'occupation':
         errors.occupation = value === '' ?
@@ -167,7 +173,6 @@ class Register extends React.Component {
               <option value="CO">Colorado</option>
               <option value="CT">Connecticut</option>
               <option value="DE">Delaware</option>
-              <option value="DC">state Of Columbia</option>
               <option value="FL">Florida</option>
               <option value="GA">Georgia</option>
               <option value="HI">Hawaii</option>
@@ -207,6 +212,7 @@ class Register extends React.Component {
               <option value="VT">Vermont</option>
               <option value="VA">Virginia</option>
               <option value="WA">Washington</option>
+              <option value="DC">Washington DC</option>
               <option value="WV">West Virginia</option>
               <option value="WI">Wisconsin</option>
               <option value="WY">Wyoming</option>
@@ -253,6 +259,24 @@ class Register extends React.Component {
           {errors.email.length > 0 &&
             <div>
               <span style={errorStyle}>{errors.email}</span>
+              <br/>
+            </div>
+          }
+          <label>
+            Birthday
+            <br/>
+            <input
+              name="date"
+              type="text"
+              value={this.props.info.date}
+              placeholder="MM/DD/YYYY"
+              onChange={this.handleChange}
+            />
+          </label>
+          <br/>
+          {errors.date.length > 0 &&
+            <div>
+              <span style={errorStyle}>{errors.date}</span>
               <br/>
             </div>
           }

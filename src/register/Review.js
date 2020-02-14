@@ -57,6 +57,10 @@ class Review extends React.Component {
         </label>
         <br/>
         <label>
+          {info.date}
+        </label>
+        <br/>
+        <label>
           {info.paymentMethod}
         </label>
         <br/>

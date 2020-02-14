@@ -27,6 +27,7 @@ Contains:
   * Street address (likely as separate fields)
   * Email address
   * School or company affiliation
+  * Date of registration
   * Status: `Undergraduate Student`, `Graduate Student`, `Professor`, or
   `Industry Employee`
   * Payment method: `Credit`, `Debit`, or `PayPal`

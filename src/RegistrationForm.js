@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import Register from "./register/Register";
 import Review from "./register/Review";
 
@@ -19,6 +18,7 @@ class RegistrationForm extends React.Component {
         zipCode: '',
         email: '',
         affiliation: '',
+        date: '',
         occupation: '',
         paymentMethod: ''
       }
