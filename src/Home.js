@@ -38,6 +38,8 @@ class Home extends React.Component {
         </label>
         <br/>
         <RegisterButton />
+        <br/><br/>
+        <label><i>A Simple Website for Simple People™</i></label>
       </div>
     )
   }
