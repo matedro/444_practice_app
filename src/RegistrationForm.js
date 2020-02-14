@@ -3,50 +3,57 @@ import { useHistory } from 'react-router-dom';
 import Register from "./register/Register";
 import Review from "./register/Review";
 
-function SubmitButton() {
-  let history = useHistory();
-
-  function handleClick() {
-    history.push("/registrationComplete/");
-  }
-
-  return (
-    <button type="button" onClick={handleClick}>
-      Submit
-    </button>
-  )
-}
-
 class RegistrationForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      "review": false
+      review: false,
+      info: {
+        firstName: '',
+        lastName: '',
+        street1: '',
+        street2: '',
+        city: '',
+        state: '',
+        zipCode: '',
+        affiliation: '',
+        occupation: '',
+        paymentMethod: ''
+      }
     };
 
+    this.handleChange = this.handleChange.bind(this);
     this.handleReview = this.handleReview.bind(this);
-    this.handleReEdit = this.handleReEdit.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleReview() {
-
+  handleChange(name, value) {
+    const { info } = { ...this.state };
+    const currentState = info;
+    currentState[name] = value;
+    this.setState({ info: currentState });
   }
 
-  handleReEdit() {
-
-  }
-
-  handleSubmit() {
-
+  handleReview(value) {
+    this.setState({
+      review: value
+    });
   }
 
   render() {
     const inReview = this.state.review;
     return (
       <div>
-        {inReview ? <Review /> : <Register />}
+        {inReview ?
+          <Review
+            info={this.state.info}
+            handleReview={this.handleReview}
+          /> :
+          <Register
+            info={this.state.info}
+            handleChange={this.handleChange}
+            handleReview={this.handleReview}
+          />}
       </div>
     )
   }
