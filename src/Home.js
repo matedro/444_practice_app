@@ -17,10 +17,6 @@ function RegisterButton() {
 }
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let imgStyle = {
       maxWidth: "40%"
