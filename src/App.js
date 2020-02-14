@@ -6,7 +6,7 @@ import RegistrationForm from './RegistrationForm';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Router>
         <Switch>
           <Route exact path="/">
